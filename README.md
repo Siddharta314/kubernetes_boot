@@ -48,10 +48,23 @@ kubectl get deployment synergychat-web -o yaml
 kubectl edit deployment synergychat-web
 kubectl get pod
 ```
+A replicaset is what mantains the desired number of pods running
+`kubectl get replicasets`
+
+Config:
+`kubectl get deployment synergychat-web -o yaml > web-deployment.yaml`
+edit and apply changes:
+`kubectl apply -f web-deployment.yaml`
+
+Trashing pods:
+* The application recently had a bug introduced in the latest image version
+* The application is misconfigured and can't start properly
+* A dependency of the application is misconfigured and the application can't start properly
+* The application is trying to use too much memory and is being killed by Kubernetes
 
 
+## ConfigMaps
+The way to manage envs 
 
-
-
-
+kubectl get configmaps
 
