@@ -102,4 +102,22 @@ Let's use Envoy Gateway
 ```
 kubectl apply --server-side -f https://github.com/envoyproxy/gateway/releases/download/v1.5.1/install.yaml
 
+kubectl get gateway
+kubectl get httproute
+```
+synchat.internal to the web-service
+synchatapi.internal to the api-service
+
+
+/etc/hosts
+127.0.0.1        synchat.internal
+127.0.0.1        synchatapi.internal
+
+
+```
+minikube tunnel -c
+minikube tunnel --bind-address="127.0.0.1" -c
+
+
+kubectl get deployment synergychat-web -o yaml | grep -A 5 envFrom
 ```
