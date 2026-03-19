@@ -1,18 +1,23 @@
 # Kubernetes
 
-`minikube start --extra-config="apiserver.cors-allowed-origins=['http://boot.dev']"`
-`minikube dashboard --port=63840`
+```
+minikube start --extra-config="apiserver.cors-allowed-origins=['http://boot.dev']"
+minikube dashboard --port=63840
 local dashboard for the cluster
-`http://127.0.0.1:63840/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/workloads?namespace=default`
+http://127.0.0.1:63840/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/workloads?namespace=default
+```
 
 
 `kubectl create deployment synergychat-web --image=docker.io/bootdotdev/synergychat-web:latest`
+
 deploy container in my local k8s cluster
 
 `kubectl get deployments`
 
+
 network access is limited, port forwared needed. 
 `kubectl get pods`
+
 `kubectl port-forward PODNAME 8080:8080`
 
 ## Minikube
@@ -66,5 +71,35 @@ Trashing pods:
 ## ConfigMaps
 The way to manage envs 
 
-kubectl get configmaps
+`kubectl get configmaps`
 
+
+### Crawler
+
+```
+kubectl apply -f crawler-configmap.yaml`
+```
+
+
+## Service
+by default clusterIP 
+
+nodePort 
+```
+kubectl get svc
+kubectl proxy
+```
+
+The Gateway object not only exposes your service to the outside world, but also allows you to do things like:
+
+- Host multiple services on the same IP address
+- Host multiple services on the same port (path-based routing)
+- Terminate SSL
+- Integrate directly with external DNS and load balancers
+
+Gateway is the new alternative of Ingress
+Let's use Envoy Gateway
+```
+kubectl apply --server-side -f https://github.com/envoyproxy/gateway/releases/download/v1.5.1/install.yaml
+
+```
