@@ -151,3 +151,9 @@ kubectl -n kube-system get pod
 kubectl create ns crawler
 kubectl get ns
 ```
+
+## DNS
+
+Kubernetes automatically creates DNS entries for each service that can be used to route HTTP traffic between services. The format is:
+
+`<service-name>.<namespace>.svc.cluster.local`
