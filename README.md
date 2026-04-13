@@ -142,3 +142,12 @@ A persistent volume claim is a request for a persistent volume. When using dynam
 kubectl get pvc
 kubectl get pv
 ```
+
+
+# Namespaces
+```
+kubectl -n kube-system get pod
+
+kubectl create ns crawler
+kubectl get ns
+```
