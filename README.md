@@ -121,3 +121,19 @@ minikube tunnel --bind-address="127.0.0.1" -c
 
 kubectl get deployment synergychat-web -o yaml | grep -A 5 envFrom
 ```
+
+
+## Volumes
+The Kubernetes volume abstraction solves two primary problems:
+
+    Data persistence
+    Data sharing across containers
+
+
+## PV and PVC
+PVs can be created statically or dynamically.
+
+* Static PVs are created manually by a cluster admin
+* Dynamic PVs are created automatically when a pod requests a volume that doesn't exist yet
+
+A persistent volume claim is a request for a persistent volume. When using dynamic provisioning, a PVC will automatically create a PV if one doesn't exist that matches the claim.
