@@ -157,3 +157,17 @@ kubectl get ns
 Kubernetes automatically creates DNS entries for each service that can be used to route HTTP traffic between services. The format is:
 
 `<service-name>.<namespace>.svc.cluster.local`
+
+
+## Resources Limits
+
+``` Ki, Mi, Gi
+spec:
+  containers:
+    - name: <container-name>
+      image: <image-name>
+      resources:
+        limits:
+          memory: <max-memory>
+          cpu: <max-cpu>
+```
